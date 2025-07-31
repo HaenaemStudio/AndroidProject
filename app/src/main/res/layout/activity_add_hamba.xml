@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 헤더 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#ff6b35"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="← 취소"
+                android:textColor="#ffffff"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:id="@+id/btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="등록"
+                android:textColor="#ffffff"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <!-- 함바명 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="함바명"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp" />
+
+            <EditText
+                android:id="@+id/et_hamba_name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/search_background"
+                android:hint="함바 이름을 입력하세요"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="15dp" />
+
+            <!-- 주소 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주소"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp" />
+
+            <EditText
+                android:id="@+id/et_address"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/search_background"
+                android:hint="주소를 입력하거나 지도에서 선택"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="15dp" />
+
+            <!-- 가격 (점심) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="가격 (점심)"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp" />
+
+            <EditText
+                android:id="@+id/et_lunch_price"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/search_background"
+                android:hint="예: 15,000원"
+                android:inputType="number"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="15dp" />
+
+            <!-- 가격 (저녁) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="가격 (저녁)"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp" />
+
+            <EditText
+                android:id="@+id/et_dinner_price"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/search_background"
+                android:hint="예: 18,000원"
+                android:inputType="number"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="15dp" />
+
+            <!-- 사진 업로드 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사진 업로드"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp" />
+
+            <FrameLayout
+                android:id="@+id/photo_upload_area"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/photo_upload_background"
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📷 사진 추가 (최대 5장)"
+                    android:layout_gravity="center"
+                    android:textColor="#666" />
+
+            </FrameLayout>
+
+            <!-- 한줄 리뷰 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="한줄 리뷰"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp" />
+
+            <EditText
+                android:id="@+id/et_review"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/search_background"
+                android:hint="이 함바의 특징이나 추천 메뉴를 알려주세요"
+                android:gravity="top"
+                android:padding="12dp"
+                android:layout_marginBottom="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

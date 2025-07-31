@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="md_theme_light_primary">#ff6b35</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#FFDCC9</color>
+    <color name="md_theme_light_onPrimaryContainer">#2B1700</color>
+    <color name="md_theme_light_secondary">#775652</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_secondaryContainer">#FFDCC9</color>
+    <color name="md_theme_light_onSecondaryContainer">#2C1513</color>
+    <color name="md_theme_light_tertiary">#6F5C2E</color>
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+    <color name="md_theme_light_tertiaryContainer">#FADDAA</color>
+    <color name="md_theme_light_onTertiaryContainer">#241A00</color>
+
+    <!-- 기본 색상들 -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

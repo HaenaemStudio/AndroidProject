@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 헤더 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#ff6b35"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← 뒤로"
+            android:textColor="#ffffff"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/btn_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="초기화"
+            android:textColor="#ffffff"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+    <!-- 탭 메뉴 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="#ffffff">
+
+        <Button
+            android:id="@+id/tab_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="검색"
+            android:background="@drawable/tab_active"
+            android:textColor="#ff6b35" />
+
+        <Button
+            android:id="@+id/tab_filter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="필터"
+            android:background="@drawable/tab_inactive"
+            android:textColor="#333" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 검색창 -->
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/search_background"
+                android:hint="함바명이나 지역을 검색하세요"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:layout_marginBottom="20dp" />
+
+            <!-- 가격대 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#f9f9f9"
+                android:padding="15dp"
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💰 가격대"
+                    android:textStyle="bold"
+                    android:textColor="#ff6b35"
+                    android:layout_marginBottom="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="1만원 이하"
+                        android:background="@drawable/button_secondary"
+                        android:layout_marginEnd="5dp" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="1-2만원"
+                        android:background="@drawable/button_secondary"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="2만원 이상"
+                        android:background="@drawable/button_primary"
+                        android:textColor="#ffffff"
+                        android:layout_marginStart="5dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 거리 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#f9f9f9"
+                android:padding="15dp"
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📍 거리"
+                    android:textStyle="bold"
+                    android:textColor="#ff6b35"
+                    android:layout_marginBottom="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="1km 이내"
+                        android:background="@drawable/button_primary"
+                        android:textColor="#ffffff"
+                        android:layout_marginEnd="5dp" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="3km 이내"
+                        android:background="@drawable/button_secondary"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="5km 이내"
+                        android:background="@drawable/button_secondary"
+                        android:layout_marginStart="5dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 평점 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#f9f9f9"
+                android:padding="15dp"
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⭐ 평점"
+                    android:textStyle="bold"
+                    android:textColor="#ff6b35"
+                    android:layout_marginBottom="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="4점 이상"
+                        android:background="@drawable/button_secondary"
+                        android:layout_marginEnd="5dp" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="3점 이상"
+                        android:background="@drawable/button_secondary"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="전체"
+                        android:background="@drawable/button_primary"
+                        android:textColor="#ffffff"
+                        android:layout_marginStart="5dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 음식 종류 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#f9f9f9"
+                android:padding="15dp"
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🍽️ 음식 종류"
+                    android:textStyle="bold"
+                    android:textColor="#ff6b35"
+                    android:layout_marginBottom="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="한식"
+                        android:background="@drawable/button_primary"
+                        android:textColor="#ffffff"
+                        android:layout_marginEnd="5dp" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="중식"
+                        android:background="@drawable/button_secondary"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="일식"
+                        android:background="@drawable/button_secondary"
+                        android:layout_marginStart="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="양식"
+                        android:background="@drawable/button_secondary"
+                        android:layout_marginEnd="5dp" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="분식"
+                        android:background="@drawable/button_secondary"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="전체"
+                        android:background="@drawable/button_secondary"
+                        android:layout_marginStart="5dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- 하단 적용 버튼 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        android:padding="15dp">
+
+        <Button
+            android:id="@+id/btn_apply_filter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="필터 적용하기"
+            android:background="@drawable/button_primary"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

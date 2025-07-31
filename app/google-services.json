@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "372296782494",
+    "project_id": "hamba-b9183",
+    "storage_bucket": "hamba-b9183.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:372296782494:android:4a03b7532e9a8094bc618f",
+        "android_client_info": {
+          "package_name": "com.haenaem.hamba"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAd7OIodaWu6MpUtGwTPF8hgW2RFy7uwWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

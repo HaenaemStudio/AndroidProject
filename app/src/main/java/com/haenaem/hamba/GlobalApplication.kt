@@ -1,0 +1,55 @@
+// GlobalApplication.kt
+package com.haenaem.hamba
+import android.app.Application
+import android.content.pm.PackageManager
+import android.util.Base64
+import android.util.Log
+import com.kakao.sdk.common.KakaoSdk
+import com.kakao.vectormap.KakaoMapSdk
+import java.security.MessageDigest
+
+class GlobalApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+
+        Log.d("GlobalApplication", "Application 시작")
+        Log.d("GlobalApplication", "패키지명: $packageName")
+
+        // 키 해시 확인 (디버그용)
+        getKeyHash()
+
+        // 카카오 SDK 초기화
+        try {
+            val appKey = "37f14288ad9415fc0b1655561b42d9fb"
+            Log.d("GlobalApplication", "사용 중인 앱 키: $appKey")
+
+            KakaoSdk.init(this, appKey)
+            Log.d("GlobalApplication", "카카오 SDK 초기화 성공")
+        } catch (e: Exception) {
+            Log.e("GlobalApplication", "카카오 SDK 초기화 실패: ${e.message}")
+        }
+
+        // 카카오 지도 SDK 초기화
+        try {
+            KakaoMapSdk.init(this, "37f14288ad9415fc0b1655561b42d9fb")
+            Log.d("GlobalApplication", "카카오 지도 SDK 초기화 성공")
+        } catch (e: Exception) {
+            Log.e("GlobalApplication", "카카오 지도 SDK 초기화 실패: ${e.message}")
+            e.printStackTrace()
+        }
+    }
+
+    private fun getKeyHash() {
+        try {
+            val info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
+            for (signature in info.signatures) {
+                val md = MessageDigest.getInstance("SHA")
+                md.update(signature.toByteArray())
+                val keyHash = Base64.encodeToString(md.digest(), Base64.DEFAULT)
+                Log.d("GlobalApplication", "키 해시: $keyHash")
+            }
+        } catch (e: Exception) {
+            Log.e("GlobalApplication", "키 해시 가져오기 실패", e)
+        }
+    }
+}
