@@ -20,6 +20,8 @@ import com.kakao.vectormap.KakaoMapReadyCallback
 import com.kakao.vectormap.LatLng
 import com.kakao.vectormap.MapLifeCycleCallback
 import com.kakao.vectormap.MapView
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 class MapFragment : Fragment() {
 
@@ -31,6 +33,7 @@ class MapFragment : Fragment() {
     private lateinit var btnAddHamba: Button
 
     private lateinit var hambaRepository: HambaRepository
+    private var hambaList: List<HambaData> = emptyList() // 함바 데이터 저장용
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -64,7 +67,9 @@ class MapFragment : Fragment() {
             override fun onMapReady(map: KakaoMap) {
                 Log.d("MapFragment", "지도 준비 완료!")
                 kakaoMap = map
-                addHambaMarkers(map)
+                addHambaMarkers(map) // 🔥 기존 안드로이드 기본 리소스 방식 (가장 안전)
+                // addTextLabels(map) // 텍스트 라벨 (주석 처리)
+                setupMapClickListeners(map)
             }
 
             override fun getPosition(): LatLng {
@@ -138,6 +143,15 @@ class MapFragment : Fragment() {
                     lunchPrice = 12000,
                     dinnerPrice = 15000,
                     description = "가정식 반찬이 맛있어요!"
+                ),
+                HambaData(
+                    name = "전통 한상뷔페",
+                    address = "서울시 마포구 홍대",
+                    latitude = 37.5703,
+                    longitude = 126.9778,
+                    lunchPrice = 13000,
+                    dinnerPrice = 16000,
+                    description = "전통 한식이 일품!"
                 )
             )
 
@@ -153,8 +167,36 @@ class MapFragment : Fragment() {
         }
     }
 
+    private fun setupMapClickListeners(map: KakaoMap) {
+        // 지도 클릭 이벤트 (간단한 버전)
+        map.setOnMapClickListener { kakaoMap, position, screenPoint, poi ->
+            Log.d("MapFragment", "지도 클릭됨: ${position.latitude}, ${position.longitude}")
+
+            // 클릭한 위치 근처의 함바 찾기 (간단한 거리 계산)
+            val clickedHamba = findNearestHamba(position)
+            clickedHamba?.let { hamba ->
+                Log.d("MapFragment", "근처 함바 발견: ${hamba.name}")
+                val intent = Intent(requireContext(), HambaDetailActivity::class.java)
+                intent.putExtra("hamba_data", hamba)
+                startActivity(intent)
+            }
+        }
+    }
+
+    private fun findNearestHamba(position: LatLng): HambaData? {
+        val threshold = 0.01 // 대략 1km 정도의 오차 허용
+
+        return hambaList.find { hamba ->
+            val distance = sqrt(
+                (hamba.latitude - position.latitude).pow(2.0) +
+                        (hamba.longitude - position.longitude).pow(2.0)
+            )
+            distance < threshold
+        }
+    }
+
     private fun addHambaMarkers(map: KakaoMap) {
-        val hambaList = hambaRepository.getAllHambas()
+        hambaList = hambaRepository.getAllHambas()
         Log.d("MapFragment", "마커 추가할 함바 개수: ${hambaList.size}")
 
         hambaList.forEach { hamba ->
@@ -162,16 +204,18 @@ class MapFragment : Fragment() {
                 val position = LatLng.from(hamba.latitude, hamba.longitude)
                 Log.d("MapFragment", "마커 추가: ${hamba.name} at (${hamba.latitude}, ${hamba.longitude})")
 
-                val labelStyle = com.kakao.vectormap.label.LabelStyle.from(R.drawable.ic_launcher_foreground)
-                val labelStyles = com.kakao.vectormap.label.LabelStyles.from(labelStyle)
-                val labelOptions = com.kakao.vectormap.label.LabelOptions.from(position).setStyles(labelStyles)
+                val labelOptions = com.kakao.vectormap.label.LabelOptions.from(position)
+                    .setStyles(android.R.drawable.star_big_on)
 
                 map.labelManager?.layer?.addLabel(labelOptions)
+                Log.d("MapFragment", "마커 추가 성공: ${hamba.name}")
 
             } catch (e: Exception) {
-                Log.e("MapFragment", "마커 추가 실패: ${e.message}")
+                Log.e("MapFragment", "마커 추가 실패 - ${hamba.name}: ${e.message}")
             }
         }
+
+        Log.d("MapFragment", "모든 마커 처리 완료")
     }
 
     override fun onResume() {

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+
+    <!-- 큰 원형 배경 (주황색) -->
+    <path
+        android:fillColor="#ff6b35"
+        android:pathData="M20,20m-18,0a18,18 0,1 1,36 0a18,18 0,1 1,-36 0"/>
+
+    <!-- 흰색 테두리 -->
+    <path
+        android:fillColor="#ffffff"
+        android:pathData="M20,20m-15,0a15,15 0,1 1,30 0a15,15 0,1 1,-30 0"/>
+
+    <!-- 안쪽 주황색 원 -->
+    <path
+        android:fillColor="#ff6b35"
+        android:pathData="M20,20m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0"/>
+
+    <!-- 중앙 흰색 점 -->
+    <path
+        android:fillColor="#ffffff"
+        android:pathData="M20,20m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0"/>
+
+    <!-- H 문자 (함바의 H) -->
+    <path
+        android:fillColor="#ff6b35"
+        android:pathData="M16,16 L16,24 L18,24 L18,21 L22,21 L22,24 L24,24 L24,16 L22,16 L22,19 L18,19 L18,16 Z"/>
+</vector>

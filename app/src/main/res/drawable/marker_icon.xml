@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    <!-- 단순한 원형 마커 -->
+    <path
+        android:fillColor="#ff6b35"
+        android:pathData="M16,16m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0"/>
+    <!-- 테두리 -->
+    <path
+        android:fillColor="#ffffff"
+        android:strokeWidth="2"
+        android:strokeColor="#333333"
+        android:pathData="M16,16m-8,0a8,8 0,1 1,16 0a8,8 0,1 1,-16 0"/>
+</vector>
