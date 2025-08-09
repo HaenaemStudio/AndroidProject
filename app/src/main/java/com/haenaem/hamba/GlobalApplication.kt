@@ -20,7 +20,7 @@ class GlobalApplication : Application() {
 
         // 카카오 SDK 초기화
         try {
-            val appKey = "37f14288ad9415fc0b1655561b42d9fb"
+            val appKey = "ef624904779a6cd5d1d6cadf9c41f47d"
             Log.d("GlobalApplication", "사용 중인 앱 키: $appKey")
 
             KakaoSdk.init(this, appKey)
@@ -31,7 +31,7 @@ class GlobalApplication : Application() {
 
         // 카카오 지도 SDK 초기화
         try {
-            KakaoMapSdk.init(this, "37f14288ad9415fc0b1655561b42d9fb")
+            KakaoMapSdk.init(this, "ef624904779a6cd5d1d6cadf9c41f47d")
             Log.d("GlobalApplication", "카카오 지도 SDK 초기화 성공")
         } catch (e: Exception) {
             Log.e("GlobalApplication", "카카오 지도 SDK 초기화 실패: ${e.message}")
@@ -41,8 +41,22 @@ class GlobalApplication : Application() {
 
     private fun getKeyHash() {
         try {
-            val info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
-            for (signature in info.signatures) {
+            val info = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
+                packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNING_CERTIFICATES)
+            } else {
+                @Suppress("DEPRECATION")
+                packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
+            }
+
+            val signatures =
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
+                    info.signingInfo?.apkContentsSigners
+                } else {
+                    @Suppress("DEPRECATION")
+                    info.signatures
+                }
+
+            signatures?.forEach { signature ->
                 val md = MessageDigest.getInstance("SHA")
                 md.update(signature.toByteArray())
                 val keyHash = Base64.encodeToString(md.digest(), Base64.DEFAULT)

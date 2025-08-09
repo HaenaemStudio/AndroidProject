@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.haenaem.hamba"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.haenaem.hamba"
         minSdk = 24
-        targetSdk = 33  // Android 14로 변경
+        targetSdk = 35  // Android 14로 변경
         versionCode = 1
         versionName = "1.0"
 
@@ -22,7 +22,7 @@ android {
 
         // ndk 아키텍처 필터 추가
         ndk {
-            abiFilters += listOf("arm64-v8a", "armeabi-v7a")
+            abiFilters += listOf("arm64-v8a", "armeabi-v7a", "x86_64")
         }
     }
 

@@ -3,22 +3,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- 카카오 지도 뷰 (공식 v2) -->
-    <com.kakao.vectormap.MapView
-        android:id="@+id/map_view"
+    <!-- 지도 영역 (카카오 지도 대신 임시 영역) -->
+    <FrameLayout
+        android:id="@+id/map_area"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_panel"
+        android:background="#e8f5e8">
 
-    <!-- 현재 위치 버튼 -->
-    <ImageButton
-        android:id="@+id/btn_current_location"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
+        <com.kakao.vectormap.MapView
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="📍 지도 영역\n(카카오 지도 자리)"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:textColor="#666" />
+
+    </FrameLayout>
+
+    <!-- 하단 패널 -->
+    <LinearLayout
+        android:id="@+id/bottom_panel"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
         android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
-        android:background="@drawable/button_primary"
-        android:src="@android:drawable/ic_menu_mylocation"
-        android:contentDescription="현재 위치" />
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:elevation="8dp"
+        android:padding="15dp">
+
+        <!-- 검색바 -->
+        <EditText
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/search_background"
+            android:hint="지역이나 뷔페명으로 검색..."
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginBottom="10dp" />
+
+        <!-- 버튼들 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_filter"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="필터"
+                android:background="@drawable/button_secondary"
+                android:layout_marginEnd="5dp" />
+
+            <Button
+                android:id="@+id/btn_add_hamba"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="+ 뷔페 추가"
+                android:background="@drawable/button_primary"
+                android:textColor="#ffffff"
+                android:layout_marginStart="5dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>
