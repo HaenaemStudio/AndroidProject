@@ -2,6 +2,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize") // Parcelize를 위한 플러그인 추가
 }
 
 android {
@@ -65,6 +66,9 @@ dependencies {
 
     // 카카오 지도 SDK v2 (공식)
     implementation("com.kakao.maps.open:android:2.12.8")
+
+    // JSON 처리를 위한 Gson
+    implementation("com.google.code.gson:gson:2.10.1")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

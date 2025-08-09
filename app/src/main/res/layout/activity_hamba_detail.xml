@@ -16,6 +16,7 @@
             android:padding="15dp">
 
             <TextView
+                android:id="@+id/btn_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="← 뒤로"
@@ -24,6 +25,7 @@
                 android:layout_centerVertical="true" />
 
             <TextView
+                android:id="@+id/btn_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="♡ 즐겨찾기"
@@ -61,6 +63,7 @@
             android:layout_marginTop="0dp">
 
             <TextView
+                android:id="@+id/tv_hamba_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="맛있는 한식뷔페"
@@ -75,6 +78,7 @@
                 android:layout_marginBottom="10dp">
 
                 <TextView
+                    android:id="@+id/tv_rating_stars"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★★★★☆"
@@ -82,6 +86,7 @@
                     android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/tv_rating_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="4.2 (127명 평가)"
@@ -90,6 +95,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tv_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="서울시 강남구 역삼동 123-45"
@@ -115,6 +121,7 @@
                 android:layout_marginBottom="8dp" />
 
             <TextView
+                android:id="@+id/tv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="점심: 15,000원 / 저녁: 18,000원" />
@@ -139,6 +146,7 @@
                 android:layout_marginBottom="8dp" />
 
             <TextView
+                android:id="@+id/tv_operating_hours"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="평일: 11:00 - 21:00\n주말: 11:00 - 22:00" />
@@ -163,6 +171,7 @@
                 android:layout_marginBottom="8dp" />
 
             <TextView
+                android:id="@+id/tv_review"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="반찬 종류가 정말 많아요! 특히 김치찌개가 맛있어서..." />
